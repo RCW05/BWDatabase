@@ -1,0 +1,9 @@
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\bin\Debug\BWDatabase.exe.config
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\bin\Debug\BWDatabase.exe
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\bin\Debug\BWDatabase.pdb
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.csprojAssemblyReference.cache
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.frmDatabase.resources
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.Properties.Resources.resources
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.csproj.GenerateResource.cache
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.exe
+C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.pdb
