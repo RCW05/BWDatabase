@@ -19,6 +19,7 @@ namespace BWDatabase
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("test");
             this.Close();
         }
     }
