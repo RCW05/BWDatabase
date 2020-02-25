@@ -12,6 +12,10 @@ namespace BWDatabase
 {
     public partial class frmDatabase : Form
     {
+
+        public string thisisavalue;
+        public string thisisanothervalue;
+        
         public frmDatabase()
         {
             InitializeComponent();
@@ -19,8 +23,23 @@ namespace BWDatabase
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
             this.Close();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Database db = new BWDatabase.Database();
+
+            long x = 0;
+
+            foreach (var Row in db.Test(x))
+            {
+                var fields = Row as IDictionary<string, object>;
+                var test = fields["idTestOne"];
+                var testTwo = fields["idTestTwo"];
+                thisisanothervalue = Convert.ToString(testTwo);
+                thisisavalue = Convert.ToString(test);                
+            }
         }
     }
 }
