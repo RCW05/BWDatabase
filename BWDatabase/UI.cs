@@ -28,18 +28,12 @@ namespace BWDatabase
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Database db = new BWDatabase.Database();
 
-            long x = 0;
+        }
 
-            foreach (var Row in db.Test(x))
-            {
-                var fields = Row as IDictionary<string, object>;
-                var test = fields["idTestOne"];
-                var testTwo = fields["idTestTwo"];
-                thisisanothervalue = Convert.ToString(testTwo);
-                thisisavalue = Convert.ToString(test);                
-            }
+        private void frmDatabase_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
