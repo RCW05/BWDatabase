@@ -7,7 +7,6 @@ C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.Properties
 C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.csproj.GenerateResource.cache
 C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.exe
 C:\Users\RCW5\source\repos\BWDatabase\BWDatabase\obj\Debug\BWDatabase.pdb
-C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\obj\Debug\BWDatabase.csprojAssemblyReference.cache
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\obj\Debug\BWDatabase.frmDatabase.resources
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\obj\Debug\BWDatabase.Properties.Resources.resources
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\obj\Debug\BWDatabase.csproj.GenerateResource.cache
@@ -16,12 +15,13 @@ C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\obj\Debug\BWDatabase.pdb
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\BWDatabase.exe.config
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\BWDatabase.exe
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\BWDatabase.pdb
-C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\Dapper.dll
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\MySql.Data.dll
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\Google.Protobuf.dll
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\Ubiety.Dns.Core.dll
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\Renci.SshNet.dll
-C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\Dapper.xml
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\MySql.Data.xml
 C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\obj\Debug\BWDatabase.csproj.CopyComplete
+C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\obj\Debug\BWDatabase.csprojAssemblyReference.cache
+C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\Dapper.dll
+C:\Users\Play\Source\Repos\RCW05\BWDatabase\BWDatabase\bin\Debug\Dapper.xml
