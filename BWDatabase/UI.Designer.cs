@@ -341,6 +341,7 @@
             // 
             // txtCustNumber
             // 
+            this.txtCustNumber.Enabled = false;
             this.txtCustNumber.Location = new System.Drawing.Point(151, 75);
             this.txtCustNumber.Name = "txtCustNumber";
             this.txtCustNumber.Size = new System.Drawing.Size(196, 20);
@@ -449,6 +450,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 

@@ -17,6 +17,8 @@ namespace BWDatabase
 
         public int CustNumber;
         public int CustomerCount;
+        public int CustomerNumber;
+        public int i;
         public string FName;
         //
         public string gTitle;
@@ -127,23 +129,44 @@ namespace BWDatabase
             switch(btnCreate.Text)
             {
                 case "Create New":
-                    {
+                    {                       
                         btnCreate.Text = "Save";
                         AddDefaultClearValues();
                         ClearCustomerValues();
+
+                        Database db = new BWDatabase.Database();
+                        foreach (var Row in db.GetCustomerNumber())
+                        {
+                            ////////////////////////////////////////////////
+                            var Fields = Row as IDictionary<string, object>;
+                            string objNumber = Fields["CustomerNumber"].ToString();
+                            CustomerNumber = Int32.Parse(objNumber);
+                            Console.WriteLine(CustomerNumber);
+                               
+                            if(CustomerNumber > i)
+                            {
+                                i = CustomerNumber;
+                                Console.WriteLine(i);
+                            }
+                        }
+                        txtCustNumber.Text = CustomerNumber.ToString();
+
                         break;
                     }
                 case "Save":
                     {
-                        Database db = new BWDatabase.Database();
-                        foreach (var Row in db.GetCount())
-                        {
-                            var Fields = Row as IDictionary<string, object>;
-                            string objCount = Fields["COUNT(*)"].ToString();
-                            CustomerCount = Int32.Parse(objCount);
-                            CustomerCount = CustomerCount + 1;
-                        }
-                        SaveNewEntry(CustomerCount);
+
+                        //Database db = new BWDatabase.Database();
+                        //foreach (var Row in db.GetCount())
+                        //{
+                        //    var Fields = Row as IDictionary<string, object>;
+                        //    string objCount = Fields["COUNT(*)"].ToString();
+                        //    CustomerCount = Int32.Parse(objCount);
+                        //    CustomerCount = CustomerCount + 1;
+                        // }
+                        //txtCustNumber.Text = CustomerCount.ToString();
+
+                        SaveNewEntry(CustomerNumber);
                         ClearCustomerList();
                         LoadCustomerList();
                         lstCustomers.SelectedIndex = 0;
@@ -188,6 +211,16 @@ namespace BWDatabase
         public void ClearCustomerList()
         {
             lstCustomers.Items.Clear();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Database db = new BWDatabase.Database();
+            CustNumber = Int32.Parse(txtCustNumber.Text);
+            db.DeleteEntry(CustNumber, txtFullName.Text);
+            ClearCustomerList();
+            ClearCustomerValues();
+            LoadCustomerList();
         }
     }
 }
