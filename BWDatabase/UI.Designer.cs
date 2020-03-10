@@ -55,6 +55,8 @@
             this.lblAddTelephone = new System.Windows.Forms.Label();
             this.lblTelephone = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtCustNumber = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblFullName = new System.Windows.Forms.Label();
@@ -66,8 +68,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.txtCustNumber = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbControlMain.SuspendLayout();
             this.tbPgInfo.SuspendLayout();
             this.grpAddInfo.SuspendLayout();
@@ -98,7 +98,7 @@
             this.tbPgInfo.Controls.Add(this.grpSelect);
             this.tbPgInfo.Location = new System.Drawing.Point(4, 25);
             this.tbPgInfo.Name = "tbPgInfo";
-            this.tbPgInfo.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbPgInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tbPgInfo.Size = new System.Drawing.Size(981, 508);
             this.tbPgInfo.TabIndex = 0;
             this.tbPgInfo.Text = "Customer Information";
@@ -339,6 +339,22 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Name";
             // 
+            // txtCustNumber
+            // 
+            this.txtCustNumber.Location = new System.Drawing.Point(151, 75);
+            this.txtCustNumber.Name = "txtCustNumber";
+            this.txtCustNumber.Size = new System.Drawing.Size(196, 20);
+            this.txtCustNumber.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Customer Number:";
+            // 
             // txtFullName
             // 
             this.txtFullName.Location = new System.Drawing.Point(151, 49);
@@ -385,7 +401,7 @@
             // 
             this.lstCustomers.FormattingEnabled = true;
             this.lstCustomers.Location = new System.Drawing.Point(17, 38);
-            this.lstCustomers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstCustomers.Margin = new System.Windows.Forms.Padding(2);
             this.lstCustomers.Name = "lstCustomers";
             this.lstCustomers.Size = new System.Drawing.Size(179, 420);
             this.lstCustomers.TabIndex = 0;
@@ -396,7 +412,7 @@
             this.tbPgSched.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPgSched.Location = new System.Drawing.Point(4, 25);
             this.tbPgSched.Name = "tbPgSched";
-            this.tbPgSched.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbPgSched.Padding = new System.Windows.Forms.Padding(3);
             this.tbPgSched.Size = new System.Drawing.Size(981, 508);
             this.tbPgSched.TabIndex = 1;
             this.tbPgSched.Text = "Schedule Collection";
@@ -405,17 +421,18 @@
             // btnCreate
             // 
             this.btnCreate.Location = new System.Drawing.Point(632, 552);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(88, 32);
             this.btnCreate.TabIndex = 0;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "Create New";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(725, 552);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 32);
             this.btnEdit.TabIndex = 1;
@@ -426,7 +443,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(818, 552);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(88, 32);
             this.btnDelete.TabIndex = 2;
@@ -436,29 +453,13 @@
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(911, 552);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(88, 32);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // txtCustNumber
-            // 
-            this.txtCustNumber.Location = new System.Drawing.Point(151, 75);
-            this.txtCustNumber.Name = "txtCustNumber";
-            this.txtCustNumber.Size = new System.Drawing.Size(196, 20);
-            this.txtCustNumber.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Customer Number:";
             // 
             // frmDatabase
             // 
