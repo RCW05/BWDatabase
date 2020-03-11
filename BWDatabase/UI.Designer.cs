@@ -48,17 +48,12 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtMobile = new System.Windows.Forms.TextBox();
-            this.txtAddTelephone = new System.Windows.Forms.TextBox();
-            this.txtTelephone = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblMobile = new System.Windows.Forms.Label();
             this.lblAddTelephone = new System.Windows.Forms.Label();
             this.lblTelephone = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtCustNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFullName = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpSelect = new System.Windows.Forms.GroupBox();
@@ -68,6 +63,13 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnAllCancel = new System.Windows.Forms.Button();
+            this.btnEditSave = new System.Windows.Forms.Button();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.txtCustNumber = new System.Windows.Forms.TextBox();
+            this.txtTelephone = new System.Windows.Forms.TextBox();
+            this.txtAddTelephone = new System.Windows.Forms.TextBox();
             this.tbControlMain.SuspendLayout();
             this.tbPgInfo.SuspendLayout();
             this.grpAddInfo.SuspendLayout();
@@ -83,10 +85,11 @@
             this.tbControlMain.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbControlMain.Controls.Add(this.tbPgInfo);
             this.tbControlMain.Controls.Add(this.tbPgSched);
-            this.tbControlMain.Location = new System.Drawing.Point(12, 12);
+            this.tbControlMain.Location = new System.Drawing.Point(16, 15);
+            this.tbControlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbControlMain.Name = "tbControlMain";
             this.tbControlMain.SelectedIndex = 0;
-            this.tbControlMain.Size = new System.Drawing.Size(989, 537);
+            this.tbControlMain.Size = new System.Drawing.Size(1319, 661);
             this.tbControlMain.TabIndex = 0;
             // 
             // tbPgInfo
@@ -96,74 +99,89 @@
             this.tbPgInfo.Controls.Add(this.grpAddInfo);
             this.tbPgInfo.Controls.Add(this.grpCustomerDetails);
             this.tbPgInfo.Controls.Add(this.grpSelect);
-            this.tbPgInfo.Location = new System.Drawing.Point(4, 25);
+            this.tbPgInfo.Location = new System.Drawing.Point(4, 28);
+            this.tbPgInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPgInfo.Name = "tbPgInfo";
-            this.tbPgInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgInfo.Size = new System.Drawing.Size(981, 508);
+            this.tbPgInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgInfo.Size = new System.Drawing.Size(1311, 629);
             this.tbPgInfo.TabIndex = 0;
             this.tbPgInfo.Text = "Customer Information";
             // 
             // grpAddInfo
             // 
+            this.grpAddInfo.Controls.Add(this.btnEditSave);
+            this.grpAddInfo.Controls.Add(this.btnAllCancel);
             this.grpAddInfo.Controls.Add(this.txtNotes);
             this.grpAddInfo.Controls.Add(this.txtLanguage);
             this.grpAddInfo.Controls.Add(this.txtFacebookName);
             this.grpAddInfo.Controls.Add(this.lblNotes);
             this.grpAddInfo.Controls.Add(this.lblLanguage);
             this.grpAddInfo.Controls.Add(this.lblFacebookName);
-            this.grpAddInfo.Location = new System.Drawing.Point(607, 23);
+            this.grpAddInfo.Location = new System.Drawing.Point(809, 28);
+            this.grpAddInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpAddInfo.Name = "grpAddInfo";
-            this.grpAddInfo.Size = new System.Drawing.Size(357, 469);
-            this.grpAddInfo.TabIndex = 2;
+            this.grpAddInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpAddInfo.Size = new System.Drawing.Size(476, 577);
+            this.grpAddInfo.TabIndex = 3;
             this.grpAddInfo.TabStop = false;
             this.grpAddInfo.Text = "Additional Information:";
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(152, 93);
+            this.txtNotes.AcceptsReturn = true;
+            this.txtNotes.Location = new System.Drawing.Point(203, 114);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(196, 113);
-            this.txtNotes.TabIndex = 5;
+            this.txtNotes.ReadOnly = true;
+            this.txtNotes.Size = new System.Drawing.Size(260, 138);
+            this.txtNotes.TabIndex = 2;
             // 
             // txtLanguage
             // 
-            this.txtLanguage.Location = new System.Drawing.Point(152, 67);
+            this.txtLanguage.Location = new System.Drawing.Point(203, 82);
+            this.txtLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLanguage.Name = "txtLanguage";
-            this.txtLanguage.Size = new System.Drawing.Size(196, 20);
-            this.txtLanguage.TabIndex = 3;
+            this.txtLanguage.ReadOnly = true;
+            this.txtLanguage.Size = new System.Drawing.Size(260, 22);
+            this.txtLanguage.TabIndex = 1;
             // 
             // txtFacebookName
             // 
-            this.txtFacebookName.Location = new System.Drawing.Point(152, 41);
+            this.txtFacebookName.Location = new System.Drawing.Point(203, 50);
+            this.txtFacebookName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFacebookName.Name = "txtFacebookName";
-            this.txtFacebookName.Size = new System.Drawing.Size(196, 20);
-            this.txtFacebookName.TabIndex = 1;
+            this.txtFacebookName.ReadOnly = true;
+            this.txtFacebookName.Size = new System.Drawing.Size(260, 22);
+            this.txtFacebookName.TabIndex = 0;
             // 
             // lblNotes
             // 
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(13, 97);
+            this.lblNotes.Location = new System.Drawing.Point(17, 119);
+            this.lblNotes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(38, 13);
+            this.lblNotes.Size = new System.Drawing.Size(49, 17);
             this.lblNotes.TabIndex = 4;
             this.lblNotes.Text = "Notes:";
             // 
             // lblLanguage
             // 
             this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Location = new System.Drawing.Point(13, 71);
+            this.lblLanguage.Location = new System.Drawing.Point(17, 87);
+            this.lblLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(58, 13);
+            this.lblLanguage.Size = new System.Drawing.Size(76, 17);
             this.lblLanguage.TabIndex = 2;
             this.lblLanguage.Text = "Language:";
             // 
             // lblFacebookName
             // 
             this.lblFacebookName.AutoSize = true;
-            this.lblFacebookName.Location = new System.Drawing.Point(13, 45);
+            this.lblFacebookName.Location = new System.Drawing.Point(17, 55);
+            this.lblFacebookName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFacebookName.Name = "lblFacebookName";
-            this.lblFacebookName.Size = new System.Drawing.Size(89, 13);
+            this.lblFacebookName.Size = new System.Drawing.Size(115, 17);
             this.lblFacebookName.TabIndex = 0;
             this.lblFacebookName.Text = "Facebook Name:";
             // 
@@ -172,9 +190,11 @@
             this.grpCustomerDetails.Controls.Add(this.groupBox6);
             this.grpCustomerDetails.Controls.Add(this.groupBox5);
             this.grpCustomerDetails.Controls.Add(this.groupBox4);
-            this.grpCustomerDetails.Location = new System.Drawing.Point(236, 23);
+            this.grpCustomerDetails.Location = new System.Drawing.Point(315, 28);
+            this.grpCustomerDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpCustomerDetails.Name = "grpCustomerDetails";
-            this.grpCustomerDetails.Size = new System.Drawing.Size(365, 469);
+            this.grpCustomerDetails.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpCustomerDetails.Size = new System.Drawing.Size(487, 577);
             this.grpCustomerDetails.TabIndex = 1;
             this.grpCustomerDetails.TabStop = false;
             this.grpCustomerDetails.Text = "Customer Details:";
@@ -187,213 +207,207 @@
             this.groupBox6.Controls.Add(this.txtFullAddress);
             this.groupBox6.Controls.Add(this.lblPostcode);
             this.groupBox6.Controls.Add(this.lblFullAddress);
-            this.groupBox6.Location = new System.Drawing.Point(6, 311);
+            this.groupBox6.Location = new System.Drawing.Point(8, 383);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(353, 151);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Size = new System.Drawing.Size(471, 186);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Addess";
             // 
             // txtArea
             // 
-            this.txtArea.Location = new System.Drawing.Point(151, 125);
+            this.txtArea.Location = new System.Drawing.Point(201, 154);
+            this.txtArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtArea.Name = "txtArea";
-            this.txtArea.Size = new System.Drawing.Size(196, 20);
-            this.txtArea.TabIndex = 21;
+            this.txtArea.ReadOnly = true;
+            this.txtArea.Size = new System.Drawing.Size(260, 22);
+            this.txtArea.TabIndex = 2;
             // 
             // lblArea
             // 
             this.lblArea.AutoSize = true;
-            this.lblArea.Location = new System.Drawing.Point(12, 128);
+            this.lblArea.Location = new System.Drawing.Point(16, 158);
+            this.lblArea.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(32, 13);
+            this.lblArea.Size = new System.Drawing.Size(42, 17);
             this.lblArea.TabIndex = 20;
             this.lblArea.Text = "Area:";
             // 
             // txtPostcode
             // 
-            this.txtPostcode.Location = new System.Drawing.Point(151, 101);
+            this.txtPostcode.Location = new System.Drawing.Point(201, 124);
+            this.txtPostcode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPostcode.Name = "txtPostcode";
-            this.txtPostcode.Size = new System.Drawing.Size(196, 20);
-            this.txtPostcode.TabIndex = 19;
+            this.txtPostcode.ReadOnly = true;
+            this.txtPostcode.Size = new System.Drawing.Size(260, 22);
+            this.txtPostcode.TabIndex = 1;
             // 
             // txtFullAddress
             // 
-            this.txtFullAddress.Location = new System.Drawing.Point(151, 23);
+            this.txtFullAddress.AcceptsReturn = true;
+            this.txtFullAddress.Location = new System.Drawing.Point(201, 28);
+            this.txtFullAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFullAddress.Multiline = true;
             this.txtFullAddress.Name = "txtFullAddress";
-            this.txtFullAddress.Size = new System.Drawing.Size(196, 72);
-            this.txtFullAddress.TabIndex = 17;
+            this.txtFullAddress.ReadOnly = true;
+            this.txtFullAddress.Size = new System.Drawing.Size(260, 88);
+            this.txtFullAddress.TabIndex = 0;
             // 
             // lblPostcode
             // 
             this.lblPostcode.AutoSize = true;
-            this.lblPostcode.Location = new System.Drawing.Point(12, 104);
+            this.lblPostcode.Location = new System.Drawing.Point(16, 128);
+            this.lblPostcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPostcode.Name = "lblPostcode";
-            this.lblPostcode.Size = new System.Drawing.Size(55, 13);
+            this.lblPostcode.Size = new System.Drawing.Size(71, 17);
             this.lblPostcode.TabIndex = 18;
             this.lblPostcode.Text = "Postcode:";
             // 
             // lblFullAddress
             // 
             this.lblFullAddress.AutoSize = true;
-            this.lblFullAddress.Location = new System.Drawing.Point(12, 26);
+            this.lblFullAddress.Location = new System.Drawing.Point(16, 32);
+            this.lblFullAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFullAddress.Name = "lblFullAddress";
-            this.lblFullAddress.Size = new System.Drawing.Size(67, 13);
+            this.lblFullAddress.Size = new System.Drawing.Size(90, 17);
             this.lblFullAddress.TabIndex = 16;
             this.lblFullAddress.Text = "Full Address:";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtEmail);
-            this.groupBox5.Controls.Add(this.txtMobile);
             this.groupBox5.Controls.Add(this.txtAddTelephone);
             this.groupBox5.Controls.Add(this.txtTelephone);
+            this.groupBox5.Controls.Add(this.txtEmail);
+            this.groupBox5.Controls.Add(this.txtMobile);
             this.groupBox5.Controls.Add(this.lblEmail);
             this.groupBox5.Controls.Add(this.lblMobile);
             this.groupBox5.Controls.Add(this.lblAddTelephone);
             this.groupBox5.Controls.Add(this.lblTelephone);
-            this.groupBox5.Location = new System.Drawing.Point(6, 165);
+            this.groupBox5.Location = new System.Drawing.Point(8, 203);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(353, 140);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Size = new System.Drawing.Size(471, 172);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Contact";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(151, 101);
+            this.txtEmail.Location = new System.Drawing.Point(201, 124);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(196, 20);
-            this.txtEmail.TabIndex = 15;
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(260, 22);
+            this.txtEmail.TabIndex = 3;
             // 
             // txtMobile
             // 
-            this.txtMobile.Location = new System.Drawing.Point(151, 75);
+            this.txtMobile.Location = new System.Drawing.Point(201, 92);
+            this.txtMobile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(196, 20);
-            this.txtMobile.TabIndex = 13;
-            // 
-            // txtAddTelephone
-            // 
-            this.txtAddTelephone.Location = new System.Drawing.Point(151, 49);
-            this.txtAddTelephone.Name = "txtAddTelephone";
-            this.txtAddTelephone.Size = new System.Drawing.Size(196, 20);
-            this.txtAddTelephone.TabIndex = 11;
-            // 
-            // txtTelephone
-            // 
-            this.txtTelephone.Location = new System.Drawing.Point(151, 23);
-            this.txtTelephone.Name = "txtTelephone";
-            this.txtTelephone.Size = new System.Drawing.Size(196, 20);
-            this.txtTelephone.TabIndex = 9;
+            this.txtMobile.ReadOnly = true;
+            this.txtMobile.Size = new System.Drawing.Size(260, 22);
+            this.txtMobile.TabIndex = 2;
+            this.txtMobile.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(12, 103);
+            this.lblEmail.Location = new System.Drawing.Point(16, 127);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.Size = new System.Drawing.Size(46, 17);
             this.lblEmail.TabIndex = 14;
             this.lblEmail.Text = "Email:";
             // 
             // lblMobile
             // 
             this.lblMobile.AutoSize = true;
-            this.lblMobile.Location = new System.Drawing.Point(12, 78);
+            this.lblMobile.Location = new System.Drawing.Point(16, 96);
+            this.lblMobile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(41, 13);
+            this.lblMobile.Size = new System.Drawing.Size(53, 17);
             this.lblMobile.TabIndex = 12;
             this.lblMobile.Text = "Mobile:";
             // 
             // lblAddTelephone
             // 
             this.lblAddTelephone.AutoSize = true;
-            this.lblAddTelephone.Location = new System.Drawing.Point(12, 52);
+            this.lblAddTelephone.Location = new System.Drawing.Point(16, 64);
+            this.lblAddTelephone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddTelephone.Name = "lblAddTelephone";
-            this.lblAddTelephone.Size = new System.Drawing.Size(88, 13);
+            this.lblAddTelephone.Size = new System.Drawing.Size(116, 17);
             this.lblAddTelephone.TabIndex = 10;
             this.lblAddTelephone.Text = "Addl. Telephone:";
             // 
             // lblTelephone
             // 
             this.lblTelephone.AutoSize = true;
-            this.lblTelephone.Location = new System.Drawing.Point(12, 26);
+            this.lblTelephone.Location = new System.Drawing.Point(16, 32);
+            this.lblTelephone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelephone.Name = "lblTelephone";
-            this.lblTelephone.Size = new System.Drawing.Size(61, 13);
+            this.lblTelephone.Size = new System.Drawing.Size(80, 17);
             this.lblTelephone.TabIndex = 8;
             this.lblTelephone.Text = "Telephone:";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtCustNumber);
-            this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.txtFullName);
             this.groupBox4.Controls.Add(this.txtTitle);
+            this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.lblFullName);
             this.groupBox4.Controls.Add(this.lblTitle);
-            this.groupBox4.Location = new System.Drawing.Point(6, 19);
+            this.groupBox4.Location = new System.Drawing.Point(8, 23);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(353, 140);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(471, 172);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Name";
             // 
-            // txtCustNumber
-            // 
-            this.txtCustNumber.Enabled = false;
-            this.txtCustNumber.Location = new System.Drawing.Point(151, 75);
-            this.txtCustNumber.Name = "txtCustNumber";
-            this.txtCustNumber.Size = new System.Drawing.Size(196, 20);
-            this.txtCustNumber.TabIndex = 9;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 78);
+            this.label1.Location = new System.Drawing.Point(16, 96);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.Size = new System.Drawing.Size(126, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Customer Number:";
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Location = new System.Drawing.Point(151, 49);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(196, 20);
-            this.txtFullName.TabIndex = 7;
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(151, 23);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(196, 20);
-            this.txtTitle.TabIndex = 1;
             // 
             // lblFullName
             // 
             this.lblFullName.AutoSize = true;
-            this.lblFullName.Location = new System.Drawing.Point(12, 52);
+            this.lblFullName.Location = new System.Drawing.Point(16, 64);
+            this.lblFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(38, 13);
+            this.lblFullName.Size = new System.Drawing.Size(49, 17);
             this.lblFullName.TabIndex = 6;
             this.lblFullName.Text = "Name:";
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(12, 26);
+            this.lblTitle.Location = new System.Drawing.Point(16, 32);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(30, 13);
+            this.lblTitle.Size = new System.Drawing.Size(39, 17);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title:";
             // 
             // grpSelect
             // 
             this.grpSelect.Controls.Add(this.lstCustomers);
-            this.grpSelect.Location = new System.Drawing.Point(17, 23);
+            this.grpSelect.Location = new System.Drawing.Point(23, 28);
+            this.grpSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpSelect.Name = "grpSelect";
-            this.grpSelect.Size = new System.Drawing.Size(213, 469);
+            this.grpSelect.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpSelect.Size = new System.Drawing.Size(284, 577);
             this.grpSelect.TabIndex = 0;
             this.grpSelect.TabStop = false;
             this.grpSelect.Text = "Select Customer:";
@@ -401,30 +415,32 @@
             // lstCustomers
             // 
             this.lstCustomers.FormattingEnabled = true;
-            this.lstCustomers.Location = new System.Drawing.Point(17, 38);
-            this.lstCustomers.Margin = new System.Windows.Forms.Padding(2);
+            this.lstCustomers.ItemHeight = 16;
+            this.lstCustomers.Location = new System.Drawing.Point(23, 47);
+            this.lstCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstCustomers.Name = "lstCustomers";
-            this.lstCustomers.Size = new System.Drawing.Size(179, 420);
+            this.lstCustomers.Size = new System.Drawing.Size(237, 516);
             this.lstCustomers.TabIndex = 0;
             this.lstCustomers.SelectedIndexChanged += new System.EventHandler(this.lstCustomers_SelectedIndexChanged);
             // 
             // tbPgSched
             // 
             this.tbPgSched.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPgSched.Location = new System.Drawing.Point(4, 25);
+            this.tbPgSched.Location = new System.Drawing.Point(4, 28);
+            this.tbPgSched.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPgSched.Name = "tbPgSched";
-            this.tbPgSched.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgSched.Size = new System.Drawing.Size(981, 508);
+            this.tbPgSched.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgSched.Size = new System.Drawing.Size(1311, 629);
             this.tbPgSched.TabIndex = 1;
             this.tbPgSched.Text = "Schedule Collection";
             this.tbPgSched.UseVisualStyleBackColor = true;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(632, 552);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreate.Location = new System.Drawing.Point(843, 679);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(88, 32);
+            this.btnCreate.Size = new System.Drawing.Size(117, 39);
             this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Create New";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -432,10 +448,10 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(725, 552);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEdit.Location = new System.Drawing.Point(967, 679);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(88, 32);
+            this.btnEdit.Size = new System.Drawing.Size(117, 39);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -443,10 +459,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(818, 552);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDelete.Location = new System.Drawing.Point(1091, 679);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(88, 32);
+            this.btnDelete.Size = new System.Drawing.Size(117, 39);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -454,26 +470,100 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(911, 552);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(1215, 679);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(88, 32);
+            this.btnClose.Size = new System.Drawing.Size(117, 39);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnAllCancel
+            // 
+            this.btnAllCancel.Location = new System.Drawing.Point(346, 524);
+            this.btnAllCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAllCancel.Name = "btnAllCancel";
+            this.btnAllCancel.Size = new System.Drawing.Size(117, 39);
+            this.btnAllCancel.TabIndex = 4;
+            this.btnAllCancel.Text = "Cancel";
+            this.btnAllCancel.UseVisualStyleBackColor = true;
+            this.btnAllCancel.Visible = false;
+            this.btnAllCancel.Click += new System.EventHandler(this.btnAllCancel_Click);
+            // 
+            // btnEditSave
+            // 
+            this.btnEditSave.Location = new System.Drawing.Point(223, 524);
+            this.btnEditSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditSave.Name = "btnEditSave";
+            this.btnEditSave.Size = new System.Drawing.Size(117, 39);
+            this.btnEditSave.TabIndex = 3;
+            this.btnEditSave.Text = "Save Changes";
+            this.btnEditSave.UseVisualStyleBackColor = true;
+            this.btnEditSave.Visible = false;
+            this.btnEditSave.Click += new System.EventHandler(this.btnEditSave_Click);
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(201, 29);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.ReadOnly = true;
+            this.txtTitle.Size = new System.Drawing.Size(260, 22);
+            this.txtTitle.TabIndex = 0;
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Location = new System.Drawing.Point(201, 61);
+            this.txtFullName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.ReadOnly = true;
+            this.txtFullName.Size = new System.Drawing.Size(260, 22);
+            this.txtFullName.TabIndex = 1;
+            // 
+            // txtCustNumber
+            // 
+            this.txtCustNumber.Location = new System.Drawing.Point(201, 93);
+            this.txtCustNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCustNumber.Name = "txtCustNumber";
+            this.txtCustNumber.ReadOnly = true;
+            this.txtCustNumber.Size = new System.Drawing.Size(260, 22);
+            this.txtCustNumber.TabIndex = 2;
+            // 
+            // txtTelephone
+            // 
+            this.txtTelephone.Location = new System.Drawing.Point(201, 29);
+            this.txtTelephone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.ReadOnly = true;
+            this.txtTelephone.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtTelephone.Size = new System.Drawing.Size(260, 22);
+            this.txtTelephone.TabIndex = 0;
+            this.txtTelephone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtAddTelephone
+            // 
+            this.txtAddTelephone.Location = new System.Drawing.Point(201, 61);
+            this.txtAddTelephone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddTelephone.Name = "txtAddTelephone";
+            this.txtAddTelephone.ReadOnly = true;
+            this.txtAddTelephone.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtAddTelephone.Size = new System.Drawing.Size(260, 22);
+            this.txtAddTelephone.TabIndex = 1;
+            this.txtAddTelephone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frmDatabase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1014, 589);
+            this.ClientSize = new System.Drawing.Size(1352, 725);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.tbControlMain);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmDatabase";
             this.Text = "Customer Database";
             this.Load += new System.EventHandler(this.frmDatabase_Load);
@@ -510,14 +600,10 @@
         private System.Windows.Forms.Label lblFullAddress;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtMobile;
-        private System.Windows.Forms.TextBox txtAddTelephone;
-        private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblMobile;
         private System.Windows.Forms.Label lblAddTelephone;
         private System.Windows.Forms.Label lblTelephone;
-        private System.Windows.Forms.TextBox txtFullName;
-        private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox txtNotes;
@@ -533,8 +619,14 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TextBox txtCustNumber;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEditSave;
+        private System.Windows.Forms.Button btnAllCancel;
+        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.TextBox txtAddTelephone;
+        private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.TextBox txtCustNumber;
+        private System.Windows.Forms.TextBox txtFullName;
     }
 }
 

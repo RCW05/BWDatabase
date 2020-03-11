@@ -46,6 +46,26 @@ namespace BWDatabase
 
         public void btnEdit_Click(object sender, EventArgs e)
         {
+            btnEdit.Enabled = false;
+            btnEditSave.Visible = true;
+            btnAllCancel.Visible = true;
+            lstCustomers.Enabled = false;
+
+            //Save Information currently held in textboxes.
+            gTitle = txtTitle.Text;
+            gFullName = txtFullName.Text;
+            gTelephone = txtTelephone.Text;
+            gAddTelephone = txtAddTelephone.Text;
+            gMobile = txtMobile.Text;
+            gEmail = txtEmail.Text;
+            gFullAddress = txtFullAddress.Text;
+            gPostCode = txtPostcode.Text;
+            gArea = txtArea.Text;
+            gFacebook = txtFacebookName.Text;
+            gLanguage = txtLanguage.Text;
+            gNotes = txtNotes.Text;
+
+            LockOrUnlockFields(true);
 
         }
 
@@ -129,55 +149,55 @@ namespace BWDatabase
             switch(btnCreate.Text)
             {
                 case "Create New":
-                    {                       
+                    {
                         btnCreate.Text = "Save";
+                        btnEdit.Enabled = false;
+                        btnAllCancel.Visible = true;
+                        lstCustomers.Enabled = false;
                         AddDefaultClearValues();
                         ClearCustomerValues();
 
                         Database db = new BWDatabase.Database();
+                        int x = 1;
                         foreach (var Row in db.GetCustomerNumber())
-                        {
-                            ////////////////////////////////////////////////
+                        {                         
                             var Fields = Row as IDictionary<string, object>;
                             string objNumber = Fields["CustomerNumber"].ToString();
                             CustomerNumber = Int32.Parse(objNumber);
-                            Console.WriteLine(CustomerNumber);
-                               
-                            if(CustomerNumber > i)
+
+                            if (x != CustomerNumber)
                             {
-                                i = CustomerNumber;
-                                Console.WriteLine(i);
+                                CustomerNumber = x;
+                                break;
+                            }
+                            else 
+                            {
+                                x = x + 1;
+                                CustomerNumber = x;
                             }
                         }
                         txtCustNumber.Text = CustomerNumber.ToString();
-
+                        LockOrUnlockFields(true);
                         break;
                     }
                 case "Save":
                     {
-
-                        //Database db = new BWDatabase.Database();
-                        //foreach (var Row in db.GetCount())
-                        //{
-                        //    var Fields = Row as IDictionary<string, object>;
-                        //    string objCount = Fields["COUNT(*)"].ToString();
-                        //    CustomerCount = Int32.Parse(objCount);
-                        //    CustomerCount = CustomerCount + 1;
-                        // }
-                        //txtCustNumber.Text = CustomerCount.ToString();
-
                         SaveNewEntry(CustomerNumber);
                         ClearCustomerList();
                         LoadCustomerList();
                         lstCustomers.SelectedIndex = 0;
+                        lstCustomers.Enabled = true;
                         btnCreate.Text = "Create New";
+                        btnEdit.Enabled = true;
+                        btnAllCancel.Visible = false;
+                        LockOrUnlockFields(false);
                         break;
                     }
                 default:
                     {
 
                     break;
-                    }
+                    }                    
             }
         }
 
@@ -221,6 +241,85 @@ namespace BWDatabase
             ClearCustomerList();
             ClearCustomerValues();
             LoadCustomerList();
+        }
+
+        private void btnAllCancel_Click(object sender, EventArgs e)
+        {
+        if(btnCreate.Text == "Save")
+            {
+                ClearCustomerList();
+                LoadCustomerList();
+                LockOrUnlockFields(false);
+                lstCustomers.Enabled = true;
+                lstCustomers.SelectedIndex = 0;
+                btnAllCancel.Visible = false;
+                btnEdit.Enabled = true;
+            }
+            else
+            {
+                btnEdit.Enabled = true;
+                btnEditSave.Visible = false;
+                btnAllCancel.Visible = false;
+                lstCustomers.Enabled = true;
+                txtTitle.Text = gTitle;
+                txtFullName.Text = gFullName;
+                txtTelephone.Text = gTelephone;
+                txtAddTelephone.Text = gAddTelephone;
+                txtMobile.Text = gMobile;
+                txtEmail.Text = gEmail;
+                txtFullAddress.Text = gFullAddress;
+                txtPostcode.Text = gPostCode;
+                txtArea.Text = gArea;
+                txtFacebookName.Text = gFacebook;
+                txtLanguage.Text = gLanguage;
+                txtNotes.Text = gNotes;
+                LockOrUnlockFields(false);
+            }
+
+        }
+
+        private void btnEditSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LockOrUnlockFields(Boolean LockorUnlock)
+        {
+            switch(LockorUnlock)
+            {
+                case true:
+                    {
+                        txtTitle.ReadOnly = false;
+                        txtFullName.ReadOnly = false;
+                        txtTelephone.ReadOnly = false;
+                        txtAddTelephone.ReadOnly = false;
+                        txtMobile.ReadOnly = false;
+                        txtEmail.ReadOnly = false;
+                        txtFullAddress.ReadOnly = false;
+                        txtPostcode.ReadOnly = false;
+                        txtArea.ReadOnly = false;
+                        txtFacebookName.ReadOnly = false;
+                        txtLanguage.ReadOnly = false;
+                        txtNotes.ReadOnly = false;
+                        break;
+                    }
+                case false:
+                    {
+                        txtTitle.ReadOnly = true;
+                        txtFullName.ReadOnly = true;
+                        txtTelephone.ReadOnly = true;
+                        txtAddTelephone.ReadOnly = true;
+                        txtMobile.ReadOnly = true;
+                        txtEmail.ReadOnly = true;
+                        txtFullAddress.ReadOnly = true;
+                        txtPostcode.ReadOnly = true;
+                        txtArea.ReadOnly = true;
+                        txtFacebookName.ReadOnly = true;
+                        txtLanguage.ReadOnly = true;
+                        txtNotes.ReadOnly = true;
+                        break;
+                    }
+            }
         }
     }
 }
