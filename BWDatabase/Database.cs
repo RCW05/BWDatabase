@@ -52,7 +52,7 @@ namespace BWDatabase
             return result;
         }
 
-        public void SaveEntry(int Count, string Title, string FullName,
+        public void SaveEntry(int CustNum, string Title, string FullName,
                               string Telep, string AddTelep, string Mob, string Email, string FullAdd,
                               string PostCode, string Area, string Facebook,
                               string Language, string Notes)
@@ -61,7 +61,7 @@ namespace BWDatabase
 
             var sql = "INSERT INTO Customer (CustomerNumber, Title, FullName, Telephone, AddTelephone," + 
                 "Mobile, Email, FullAddress, Postcode, Area, Facebook, Language, Notes)" +
-                " VALUES(" + Count + ",'" + Title + "','" + FullName + "'," + Telep + "," + AddTelep + "," + Mob + ",'" + Email + "','" +
+                " VALUES(" + CustNum + ",'" + Title + "','" + FullName + "'," + Telep + "," + AddTelep + "," + Mob + ",'" + Email + "','" +
                       FullAdd + "','" + PostCode + "','" + Area + "','" + Facebook + "','" + Language + "','" + Notes + "'" + ");";
 
             dbConnection.Execute(sql);
@@ -73,6 +73,23 @@ namespace BWDatabase
             var dbConnection = new Database().GetConnection;
 
             var sql = "DELETE FROM Customer WHERE CustomerNumber = '" + CustNumber + "' AND FullName = '" + FullName + "';";
+
+            dbConnection.Execute(sql);
+            dbConnection.Close();
+        }
+        public void EditEntry(int CustNumber, string Title, string FullName,
+                              string Telep, string AddTelep, string Mob, string Email, string FullAdd,
+                              string PostCode, string Area, string Facebook,
+                              string Language, string Notes)
+        {
+            var dbConnection = new Database().GetConnection;
+
+            var sql = "UPDATE Customer " +
+                      "SET Title = '" + Title + "' , FullName = '" + FullName + "', Telephone = '" + Telep +
+                      "' , AddTelephone = '" + AddTelep + "' , Mobile = '" + Mob + "' , Email = '" + Email +
+                      "' , FullAddress = '" + FullAdd + "' , Postcode = '" + PostCode + "' , Area = '" + Area +
+                      "' , Facebook = '" + Facebook + "' , Language = '" + Language + "' , Notes = '" + Notes + "'" +
+                      " WHERE CustomerNumber = '" + CustNumber + "'; ";
 
             dbConnection.Execute(sql);
             dbConnection.Close();
