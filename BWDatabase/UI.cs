@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.Diagnostics;
 using System.Runtime.Remoting.Messaging;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BWDatabase
@@ -15,24 +9,28 @@ namespace BWDatabase
     public partial class frmDatabase : Form
     {
 
-        public int CustNumber;
-        public int CustomerCount;
-        public int CustomerNumber;
-        public int i;
-        public string FName;
+        int CustNumber;
+        int CustomerNumber;
+        string FName;
         //
-        public string gTitle;
-        public string gFullName;
-        public string gTelephone;
-        public string gAddTelephone;
-        public string gMobile;
-        public string gEmail;
-        public string gFullAddress;
-        public string gPostCode;
-        public string gArea;
-        public string gFacebook;
-        public string gLanguage;
-        public string gNotes;
+        string gTitle;
+        string gFullName;
+        string gTelephone;
+        string gAddTelephone;
+        string gMobile;
+        string gEmail;
+        string gFullAddress;
+        string gPostCode;
+        string gArea;
+        string gFacebook;
+        string gLanguage;
+        string gNotes;
+        //
+        const string CreateNew = "Create New";
+        const string Save = "Save";
+        const string NewCust = "<New Customer>";
+        const string CustNumText = "txtCustNumber";
+        const string CustEmailText = "txtEmail";
 
         public frmDatabase()
         {
@@ -50,7 +48,6 @@ namespace BWDatabase
             btnEditSave.Visible = true;
             btnAllCancel.Visible = true;
             lstCustomers.Enabled = false;
-
             //Save Information currently held in textboxes.
             gTitle = txtTitle.Text;
             gFullName = txtFullName.Text;
@@ -64,7 +61,7 @@ namespace BWDatabase
             gFacebook = txtFacebookName.Text;
             gLanguage = txtLanguage.Text;
             gNotes = txtNotes.Text;
-
+            //
             LockOrUnlockFields(true);
 
         }
@@ -77,7 +74,7 @@ namespace BWDatabase
 
         private void lstCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstCustomers.SelectedItem.ToString()=="<New Customer>")
+            if(lstCustomers.SelectedItem.ToString()== NewCust)
             {
 
             }
@@ -125,6 +122,19 @@ namespace BWDatabase
                     txtNotes.Text = Fields["Notes"].ToString();
                 }
             }
+            if(txtTelephone.Text == "0")
+            {
+                txtTelephone.Text = "";
+            }
+            if (txtAddTelephone.Text == "0")
+            {
+                txtAddTelephone.Text = "";
+            }
+            if (txtMobile.Text == "0")
+            {
+                txtMobile.Text = "";
+            }
+
         }
 
         public void ClearCustomerValues()
@@ -148,10 +158,11 @@ namespace BWDatabase
         {
             switch(btnCreate.Text)
             {
-                case "Create New":
+                case CreateNew:
                     {
-                        btnCreate.Text = "Save";
+                        btnCreate.Text = Save;
                         btnEdit.Enabled = false;
+                        btnDelete.Enabled = false;
                         btnAllCancel.Visible = true;
                         lstCustomers.Enabled = false;
                         AddDefaultClearValues();
@@ -180,18 +191,37 @@ namespace BWDatabase
                         LockOrUnlockFields(true);
                         break;
                     }
-                case "Save":
+                case Save:
                     {
-                        SaveNewEntry(CustomerNumber);
-                        ClearCustomerList();
-                        LoadCustomerList();
-                        lstCustomers.SelectedIndex = 0;
-                        lstCustomers.Enabled = true;
-                        btnCreate.Text = "Create New";
-                        btnEdit.Enabled = true;
-                        btnAllCancel.Visible = false;
-                        LockOrUnlockFields(false);
-                        break;
+                        if (ValidateNameFields())
+                        {                     
+                            if (ValidateContactFields())
+                            {
+                                SaveNewEntry(CustomerNumber);
+                                ClearCustomerList();
+                                LoadCustomerList();
+                                lstCustomers.SelectedIndex = 0;
+                                lstCustomers.Enabled = true;
+                                btnCreate.Text = CreateNew;
+                                btnEdit.Enabled = true;
+                                btnDelete.Enabled = true;
+                                btnAllCancel.Visible = false;
+                                LockOrUnlockFields(false);
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Unable to save, requires validation");
+                                break;
+                                //Do Nothing
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Unable to save, requires validation");
+                            break;
+                            //Do Nothing
+                        }
                     }
                 default:
                     {
@@ -203,7 +233,7 @@ namespace BWDatabase
 
         public void AddDefaultClearValues()
         {
-            lstCustomers.Items.Add("<New Customer>");
+            lstCustomers.Items.Add(NewCust);
             int Count = lstCustomers.Items.Count;
             lstCustomers.SelectedIndex = Count - 1;
         }
@@ -245,15 +275,16 @@ namespace BWDatabase
 
         private void btnAllCancel_Click(object sender, EventArgs e)
         {
-        if(btnCreate.Text == "Save")
+        if(btnCreate.Text == Save)
             {
                 ClearCustomerList();
                 LoadCustomerList();
-                LockOrUnlockFields(false);
+                btnCreate.Text = CreateNew;
                 lstCustomers.Enabled = true;
                 lstCustomers.SelectedIndex = 0;
                 btnAllCancel.Visible = false;
                 btnEdit.Enabled = true;
+                LockOrUnlockFields(false);
             }
             else
             {
@@ -269,13 +300,13 @@ namespace BWDatabase
                 txtEmail.Text = gEmail;
                 txtFullAddress.Text = gFullAddress;
                 txtPostcode.Text = gPostCode;
+                txtPostcode.Text = gPostCode;
                 txtArea.Text = gArea;
                 txtFacebookName.Text = gFacebook;
                 txtLanguage.Text = gLanguage;
                 txtNotes.Text = gNotes;
                 LockOrUnlockFields(false);
             }
-
         }
 
         private void btnEditSave_Click(object sender, EventArgs e)
@@ -320,6 +351,61 @@ namespace BWDatabase
                         break;
                     }
             }
+        }
+        public bool ValidateContactFields()
+        {
+            foreach (Control control in grpContact.Controls)
+            {
+                if (control.Text.ToString().Length > 0)
+                { 
+                    if (control.GetType() == typeof(TextBox))
+                    {
+                        if (control.Name == CustEmailText)
+                        {
+                            //Do Nothing, Expected.
+                        }
+                        else
+                        {
+                            long num;
+                            bool isNum = Int64.TryParse(control.Text.Trim(), out num);
+                            Console.WriteLine(control.Name);
+                            if (!isNum)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    control.Text = "0";
+                    Console.WriteLine(control.Name);
+                }
+            }
+            return true;
+        }
+
+        public bool ValidateNameFields()
+        {
+            foreach (Control control in grpName.Controls)
+            {
+                if (control.GetType() == typeof(TextBox))
+                {
+                    if (control.Name == CustNumText)
+                    {
+                        //Do Nothing, Expected.
+                    }
+                    else
+                    {
+                        if (txtFullName.TextLength == 0 || txtFullName.TextLength == 1)
+                        {
+                            //Empty or insufficient Name field length.
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
     }
 }
