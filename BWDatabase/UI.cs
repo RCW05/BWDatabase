@@ -156,14 +156,17 @@ namespace BWDatabase
                             }
                             else
                             {
-                                MessageBox.Show("Unable to save, requires validation");
+                                var ErrorResult = ($"Please validate the numbers in the contact fields.");
+                                var Caption = "Contact Field Error.";
+                                MessageBox.Show(ErrorResult, Caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 break;
-                                //Do Nothing
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Unable to save, requires validation");
+                            var ErrorResult = ($"The Name field must be filled.");
+                            var Caption = "Name Required.";
+                            MessageBox.Show(ErrorResult, Caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                             //Do Nothing
                         }
